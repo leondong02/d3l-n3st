@@ -6,6 +6,7 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
     var referrer = context.req.headers.referer;
+    console.log(referrer);
 
     if (prev.has(referrer)) {
         return {
@@ -14,9 +15,7 @@ export async function getServerSideProps(context) {
                 permanent: false,
             },
         }
-    } else {
-        console.log(referrer);
-        
+    } else {        
         return {
             redirect: {
                 destination: '/notmember',
